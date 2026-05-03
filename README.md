@@ -4,10 +4,14 @@
 
 > Küçük ve orta ölçekli güneş/rüzgar enerjisi üreticileri için geliştirilmiş otonom bir akıllı asistandır. Hava durumunu yüksek hassasiyetle elektrik üretimine çevirir, EPİAŞ fiyatlarına göre batarya kullanımını optimize eder ve üretim hatalarını yapay zeka ile tespit eder.
 
+### 📺 Proje Sunumu (Pitch Deck)
+Jüri değerlendirmesi için hazırladığımız proje sunum dosyasına aşağıdaki bağlantıdan ulaşabilirsiniz:
+👉 **[Sunum Dosyasına Git (Google Drive) - LİNKİ BURAYA YAPIŞTIRIN](https://drive.google.com/...)**
+
 ## 🎯 Çözdüğü 3 Ana Problem
 
 1. **☀️ Üretim Belirsizliği:** "Yarın saat saat kaç kWh üreteceğim?" → Hibrit (Fizik+ML) model ile 48 saatlik üretim tahmini ve P10/P50/P90 güven aralığı hesaplaması.
-2. **💰 Fiyat Optimizasyonu:** "Enerjiyi şebekeye ne zaman satmalıyım?" → EPİAŞ Canlı PTF verileri ve Linear Programming (Doğrusal Programlama) ile maksimum kar sağlayan batarya şarj/deşarj planlaması.
+2. **💰 Fiyat Optimizasyonu:** "Enerjiyi şebekeye ne zaman satmalıyım?" → EPİAŞ Canlı PTF verileri kullanılarak **MPC (Model Predictive Control)** ve Linear Programming algoritmalarıyla bataryanın şarj/deşarj döngüsü optimize edilir, maksimum kar sağlanır.
 3. **🔧 Arıza & Anomali:** "Sistemimde fark etmediğim bir arıza var mı?" → Z-score ve IsolationForest algoritmaları ile çift katmanlı anomali tespiti.
 
 ## 🏗️ Sistem Mimarisi
@@ -20,7 +24,7 @@ Forecast2Action Motoru
 │
 ├── 2. Finans ve Optimizasyon Katmanı (Matematiksel Karar)
 │   ├── eptr2 kütüphanesi ile EPİAŞ Şeffaflık Platformu (Canlı PTF)
-│   ├── Greedy Heuristic (Hızlı) ve Linear Programming (Optimal) Batarya Algoritmaları
+│   ├── Greedy Heuristic, Linear Programming (Optimal) ve **MPC (Model Predictive Control)** Algoritmaları
 │   └── NPV, ROI, IRR Finansal Fizibilite Hesaplamaları
 │
 └── 3. IoT & Raporlama Katmanı (Endüstriyel Çıktı)
@@ -44,7 +48,7 @@ streamlit run app.py
 | Özellik | Kullanılan Teknoloji / Yöntem |
 |---------|----------|
 | **Canlı Piyasa Fiyatları** | EPİAŞ CAS TGT & REST API Entegrasyonu |
-| **Batarya Optimizasyonu** | `scipy.optimize.linprog` ile Doğrusal Programlama |
+| **Gelişmiş Batarya Optimizasyonu**| `MPC (Model Öngörülü Kontrol)` ve `Doğrusal Programlama` (SciPy) |
 | **Üretim Tahmini** | `LightGBM` Quantile Regression (P10/P50/P90) |
 | **Anomali Tespiti** | `scikit-learn` IsolationForest & Z-Score |
 | **Türkiye Potansiyel Haritası**| `Folium` & GeoJSON ile İnteraktif Kloroplet Harita |
