@@ -37,8 +37,8 @@ Forecast2Action Motoru
 Proje tamamen Python tabanlıdır ve Streamlit ile geliştirilmiştir. JavaScript, HTML veya CSS bilgisine gerek kalmadan saniyeler içinde ayağa kalkar.
 
 ```bash
-git clone https://github.com/USERNAME/forecast2action.git
-cd forecast2action
+git clone https://github.com/omercuan/Forecast2action.git
+cd Forecast2action
 pip install -r requirements.txt
 streamlit run app.py
 ```
