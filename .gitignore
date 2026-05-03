@@ -1,0 +1,30 @@
+# Byte-compiled
+__pycache__/
+*.py[cod]
+
+# Virtual env
+venv/
+.venv/
+env/
+.env
+
+# Data
+data/cache/
+data/models/*.pkl
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Streamlit & EPİAŞ
+.streamlit/secrets.toml
+.eptr2-tgt
+
+# İç Dokümanlar (Public repo'ya gitmeyecek)
+PROJE_KILAVUZU.md
+walkthrough.md

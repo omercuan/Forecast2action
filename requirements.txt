@@ -1,0 +1,15 @@
+streamlit>=1.39.0
+plotly>=5.22.0
+folium>=0.17.0
+streamlit-folium>=0.22.0
+pandas>=2.2.0
+numpy>=1.26.0
+requests>=2.31.0
+lightgbm>=4.3.0
+scikit-learn>=1.4.0
+joblib>=1.3.0
+# --- Yeni Özellikler ---
+scipy>=1.13.0          # Linear Programming (LP) batarya optimizasyonu
+reportlab>=4.2.0       # PDF rapor üreteci
+paho-mqtt>=2.1.0       # MQTT IoT inverter bağlantısı
+eptr2>=1.3.7           # EPİAŞ Şeffaflık Platformu Entegrasyonu
