@@ -4,6 +4,10 @@
 
 > Küçük ve orta ölçekli güneş/rüzgar enerjisi üreticileri için geliştirilmiş otonom bir akıllı asistandır. Hava durumunu yüksek hassasiyetle elektrik üretimine çevirir, EPİAŞ fiyatlarına göre batarya kullanımını optimize eder ve üretim hatalarını yapay zeka ile tespit eder.
 
+### 🌐 Canlı Demo (Web Uygulaması)
+Uygulamayı indirmeden, tarayıcınız üzerinden hemen test etmek için aşağıdaki canlı panele gidebilirsiniz:
+👉 **[Canlı Dashboard'a Ulaşmak İçin Tıklayın](https://forecast2action-fjdqxjz4avnkx9ihe6hz4x.streamlit.app/)**
+
 ### 📺 Proje Sunumu (Pitch Deck)
 Jüri değerlendirmesi için hazırladığımız proje sunum dosyasına aşağıdaki bağlantıdan ulaşabilirsiniz:
 👉 **[Sunum Dosyasına Git (Google Drive) - LİNKİ BURAYA YAPIŞTIRIN](https://drive.google.com/...)**
