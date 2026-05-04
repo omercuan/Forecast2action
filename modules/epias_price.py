@@ -56,7 +56,6 @@ def get_epdk_prices(tariff_key: str, hours: int = 48) -> list:
 def _get_tgt(username: str, password: str) -> tuple:
     """
     TGT işlemini doğrudan eptr2'nin kendi metoduna bırakır.
-    Hackathon Bypass: Eğer EPİAŞ reddederse sunumun bozulmaması için sahte TGT döner.
     """
     try:
         from eptr2 import EPTR2
@@ -64,10 +63,9 @@ def _get_tgt(username: str, password: str) -> tuple:
         eptr.get_tgt()
         if eptr.tgt and eptr.tgt.startswith("TGT-"):
             return eptr.tgt, None
-        return "TGT-DEMO-MODE", None
+        return None, "Geçersiz TGT veya giriş başarısız."
     except Exception as e:
-        # HATA ALIRSAK BİLE SUNUM İÇİN BAŞARILI DÖNÜYORUZ
-        return "TGT-DEMO-MODE", None
+        return None, f"Giriş hatası: {str(e)}"
 
 
 def _get_st(tgt_url: str, service: str) -> str | None:
@@ -108,13 +106,6 @@ def get_epias_ptf(hours: int = 48,
         tgt, err = _get_tgt(usr, pwd)
         if not tgt:
             return {**_mock_epias_prices(hours), "tgt_error": err}
-
-        # HACKATHON BYPASS: Eğer sistem sahte TGT döndürdüyse, simülasyon verisini "Canlı Veri" olarak göster
-        if tgt == "TGT-DEMO-MODE":
-            mock_data = _mock_epias_prices(hours)
-            mock_data["source"] = "epias_live"  # UI'da yeşil yanması için
-            mock_data["info"] = "Başarılı (Sunum Modu Aktif)"
-            return mock_data
 
         # 2) Gerçek TGT ise eptr2 üzerinden MCP verisi çek
         from eptr2 import EPTR2

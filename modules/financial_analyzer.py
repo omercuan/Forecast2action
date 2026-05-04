@@ -49,17 +49,17 @@ def calculate_npv_irr(
             # Kesirli yıl interpolasyonu uygulanır
             if i > 0:
                 fraction = -cumulative[i - 1] / (cum - cumulative[i - 1])
-                payback = i - 1 + fraction
+                payback = float(i - 1 + fraction)
             else:
                 payback = 0.0
             break
 
-    total_revenue = sum(cash_flows[1:])
-    roi_pct = ((total_revenue - capex_tl * annual_opex_tl / capex_tl * system_lifetime_years) /
-               capex_tl * 100) if capex_tl > 0 else 0
+    total_revenue = float(sum(cash_flows[1:]))
+    roi_pct = float(((total_revenue - capex_tl * annual_opex_tl / capex_tl * system_lifetime_years) /
+               capex_tl * 100) if capex_tl > 0 else 0.0)
 
     return {
-        "npv": npv,
+        "npv": float(npv),
         "irr": irr,
         "payback_years": payback,
         "cash_flows": cash_flows,

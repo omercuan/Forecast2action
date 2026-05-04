@@ -1317,12 +1317,12 @@ with tab5:
                       "✅ Karlı" if npv_val > 0 else "❌ Zararlı")
         with mc2:
             irr_val = fin_result.get("irr")
-            st.metric("📈 IRR (İVO)", f"%{irr_val:.1f}" if irr_val else "—",
-                      "Piyasa üstü" if irr_val and irr_val > 20 else "Düşük")
+            st.metric("📈 IRR (İVO)", f"%{irr_val:.1f}" if irr_val is not None else "—",
+                      "Piyasa üstü" if (irr_val is not None and irr_val > 20) else "Düşük")
         with mc3:
             pb = fin_result.get("payback_years")
-            st.metric("📅 Geri Ödeme", f"{pb:.1f} yıl" if pb else "—",
-                      "🚀 Hızlı" if pb and pb < 8 else "")
+            st.metric("📅 Geri Ödeme", f"{pb:.1f} yıl" if pb is not None else "—",
+                      "🚀 Hızlı" if (pb is not None and pb < 8) else None)
         with mc4:
             st.metric("🌱 CO₂ Tasarrufu", f"{co2_result['lifetime_co2_ton']:.1f} ton",
                       f"≈{co2_result['equivalent_trees']:.0f} ağaç/yıl")
@@ -1371,6 +1371,10 @@ with tab5:
                 sc_npv = sc_data["npv"]
                 sc_irr = sc_data.get("irr")
                 sc_pb = sc_data.get("payback_years")
+                
+                sc_irr_str = f"%{sc_irr:.1f}" if sc_irr is not None else "—"
+                sc_pb_str = f"{sc_pb:.1f} yıl" if sc_pb is not None else "—"
+                
                 color = "#00C853" if sc_npv > 0 else "#FF5252"
                 st.markdown(f"""
                 <div style="background:linear-gradient(135deg,#1a1f2b,#2d3748);
@@ -1378,8 +1382,8 @@ with tab5:
                     <h4 style="color:{color};margin:0">{sc_name}</h4>
                     <small style="color:#aaa">{sc_data['label']}</small><br><br>
                     <b>NPV:</b> {sc_npv:,.0f} TL<br>
-                    <b>IRR:</b> %{sc_irr:.1f}<br>
-                    <b>Geri Ödeme:</b> {sc_pb:.1f} yıl
+                    <b>IRR:</b> {sc_irr_str}<br>
+                    <b>Geri Ödeme:</b> {sc_pb_str}
                 </div>
                 """, unsafe_allow_html=True)
 
