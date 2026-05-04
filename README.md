@@ -8,10 +8,6 @@
 Uygulamayı indirmeden, tarayıcınız üzerinden hemen test etmek için aşağıdaki canlı panele gidebilirsiniz:
 👉 **[Canlı Dashboard'a Ulaşmak İçin Tıklayın](https://forecast2action-fjdqxjz4avnkx9ihe6hz4x.streamlit.app/)**
 
-### 📺 Proje Sunumu (Pitch Deck)
-Jüri değerlendirmesi için hazırladığımız proje sunum dosyasına aşağıdaki bağlantıdan ulaşabilirsiniz:
-👉 **[Proje Sunumunu Görüntüle (Google Drive)](https://docs.google.com/presentation/d/1ULfuGHFGT0zWKEzokC-l326d8k7bSlmS/edit?usp=sharing&ouid=108409837005569860393&rtpof=true&sd=true)**
-
 ## 🎯 Çözdüğü 3 Ana Problem
 
 1. **☀️ Üretim Belirsizliği:** "Yarın saat saat kaç kWh üreteceğim?" → Hibrit (Fizik+ML) model ile 48 saatlik üretim tahmini ve P10/P50/P90 güven aralığı hesaplaması.
