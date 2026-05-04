@@ -1293,9 +1293,21 @@ with tab5:
         bat_cycles = st.session_state.get("opt_result", {}).get("battery_cycles", 0.5)
         bat_life = battery_lifetime_estimate(bat_cycles / 2, battery_kwh) if battery_kwh > 0 else None
 
-        st.session_state["fin_result"] = fin_result
+        # Explicitly sanitize fin_result
+        sanitized_fin_result = {
+            k: float(v) if hasattr(v, "dtype") else v
+            for k, v in fin_result.items()
+        }
+        st.session_state["fin_result"] = sanitized_fin_result
         st.session_state["co2_result"] = co2_result
-        st.session_state["scenarios"] = scenarios
+        # Explicitly sanitize scenarios to dict of floats just in case
+        sanitized_scenarios = {}
+        for name, data in scenarios.items():
+            sanitized_scenarios[name] = {
+                k: float(v) if hasattr(v, "dtype") else v
+                for k, v in data.items()
+            }
+        st.session_state["scenarios"] = sanitized_scenarios
         st.session_state["capex_data"] = capex_data
         st.session_state["bat_life"] = bat_life
         st.session_state["daily_kwh_fin"] = daily_kwh
