@@ -32,9 +32,9 @@ Forecast2Action Motoru
     └── ReportLab ile Kurumsal PDF Rapor Üretimi
 ```
 
-## 🚀 Kurulum & Lokal Kullanım (Sadece 3 Komut)
+## 🚀 Kurulum & Lokal Kullanım
 
-Proje tamamen Python tabanlıdır ve Streamlit ile geliştirilmiştir. JavaScript, HTML veya CSS bilgisine gerek kalmadan saniyeler içinde ayağa kalkar.
+Proje tamamen Python tabanlıdır ve Streamlit ile geliştirilmiştir.
 
 ```bash
 git clone https://github.com/omercuan/Forecast2action.git
